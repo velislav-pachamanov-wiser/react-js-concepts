@@ -10,7 +10,6 @@ const PostDetail = lazy(() => import('../features/posts/PostDetail'))
 const TodosPage = lazy(() => import('../features/todos/TodosPage'))
 const UsersPage = lazy(() => import('../features/users/UsersPage'))
 const AnimationsPage = lazy(() => import('../features/animations/AnimationsPage'))
-const BuildToolsPage = lazy(() => import('../features/build-tools/BuildToolsPage'))
 
 function RouteFallback() {
   return <Spinner />
@@ -73,18 +72,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'build-tools',
-        element: (
-          <Suspense fallback={<RouteFallback />}>
-            <BuildToolsPage />
-          </Suspense>
-        ),
-      },
-      {
         path: '*',
         element: (
           <div className="page not-found">
-            <p>404 — TODO: dedicated NotFound page (optional, PROJECT_OUTLINE.md).</p>
+            <p>404 — Not Found.</p>
           </div>
         ),
       },

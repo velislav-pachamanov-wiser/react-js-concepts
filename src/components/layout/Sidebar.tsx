@@ -6,7 +6,6 @@ const nav: readonly { to: string; label: string; end?: boolean }[] = [
   { to: '/todos', label: 'Todos (Forms)' },
   { to: '/users', label: 'Users (Redux)' },
   { to: '/animations', label: 'Animations' },
-  { to: '/build-tools', label: 'Build tools' },
 ]
 
 /**

@@ -62,30 +62,164 @@
     }
   ],
   "comments": [
-    { "id": 1, "postId": 1, "name": "Alice", "email": "alice@example.com", "body": "Great overview of CSR fundamentals." },
-    { "id": 2, "postId": 1, "name": "Bob", "email": "bob@example.com", "body": "Would love a deeper dive into hydration." },
-    { "id": 3, "postId": 2, "name": "Carol", "email": "carol@example.com", "body": "The diffing explanation is really clear." },
-    { "id": 4, "postId": 3, "name": "Dave", "email": "dave@example.com", "body": "Outlet nesting finally clicked for me after reading this." },
-    { "id": 5, "postId": 4, "name": "Eve", "email": "eve@example.com", "body": "React Query changed how I think about async data." },
-    { "id": 6, "postId": 4, "name": "Frank", "email": "frank@example.com", "body": "Query invalidation is the key insight here." },
-    { "id": 7, "postId": 5, "name": "Grace", "email": "grace@example.com", "body": "Good distinction between server cache and client state." },
-    { "id": 8, "postId": 6, "name": "Heidi", "email": "heidi@example.com", "body": "RHF + Zod is my go-to stack now." },
-    { "id": 9, "postId": 7, "name": "Ivan", "email": "ivan@example.com", "body": "AnimatePresence took me a while but this explains it well." },
-    { "id": 10, "postId": 8, "name": "Judy", "email": "judy@example.com", "body": "The HMR speed difference between Vite and Webpack is night and day." }
+    {
+      "id": 1,
+      "postId": 1,
+      "name": "Alice",
+      "email": "alice@example.com",
+      "body": "Great overview of CSR fundamentals."
+    },
+    {
+      "id": 2,
+      "postId": 1,
+      "name": "Bob",
+      "email": "bob@example.com",
+      "body": "Would love a deeper dive into hydration."
+    },
+    {
+      "id": 3,
+      "postId": 2,
+      "name": "Carol",
+      "email": "carol@example.com",
+      "body": "The diffing explanation is really clear."
+    },
+    {
+      "id": 4,
+      "postId": 3,
+      "name": "Dave",
+      "email": "dave@example.com",
+      "body": "Outlet nesting finally clicked for me after reading this."
+    },
+    {
+      "id": 5,
+      "postId": 4,
+      "name": "Eve",
+      "email": "eve@example.com",
+      "body": "React Query changed how I think about async data."
+    },
+    {
+      "id": 6,
+      "postId": 4,
+      "name": "Frank",
+      "email": "frank@example.com",
+      "body": "Query invalidation is the key insight here."
+    },
+    {
+      "id": 7,
+      "postId": 5,
+      "name": "Grace",
+      "email": "grace@example.com",
+      "body": "Good distinction between server cache and client state."
+    },
+    {
+      "id": 8,
+      "postId": 6,
+      "name": "Heidi",
+      "email": "heidi@example.com",
+      "body": "RHF + Zod is my go-to stack now."
+    },
+    {
+      "id": 9,
+      "postId": 7,
+      "name": "Ivan",
+      "email": "ivan@example.com",
+      "body": "AnimatePresence took me a while but this explains it well."
+    },
+    {
+      "id": 10,
+      "postId": 8,
+      "name": "Judy",
+      "email": "judy@example.com",
+      "body": "The HMR speed difference between Vite and Webpack is night and day."
+    }
   ],
   "todos": [
-    { "id": 1, "userId": 1, "title": "Set up React Router with nested layouts", "completed": true },
-    { "id": 2, "userId": 1, "title": "Implement useQuery for the posts list", "completed": true },
-    { "id": 3, "userId": 1, "title": "Add useMutation with optimistic updates", "completed": false },
-    { "id": 4, "userId": 2, "title": "Create Redux slice for users", "completed": true },
-    { "id": 5, "userId": 2, "title": "Wire createAsyncThunk to fetch users", "completed": false },
-    { "id": 6, "userId": 2, "title": "Add memoised selector for filtered users", "completed": false },
-    { "id": 7, "userId": 3, "title": "Build TodoForm with React Hook Form", "completed": false },
-    { "id": 8, "userId": 3, "title": "Add Zod schema validation", "completed": false },
-    { "id": 9, "userId": 4, "title": "Implement FadeDemo with Framer Motion", "completed": false },
-    { "id": 10, "userId": 4, "title": "Add staggered list animation", "completed": false },
-    { "id": 11, "userId": 5, "title": "Configure path alias in vite.config.ts", "completed": false },
-    { "id": 12, "userId": 5, "title": "Analyse production build output with vite build", "completed": false }
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Set up React Router with nested layouts",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "Implement useQuery for the posts list",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "title": "Add useMutation with optimistic updates",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "title": "Create Redux slice for users",
+      "completed": true
+    },
+    {
+      "id": 5,
+      "userId": 2,
+      "title": "Wire createAsyncThunk to fetch users",
+      "completed": false
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "title": "Add memoised selector for filtered users",
+      "completed": false
+    },
+    {
+      "id": 7,
+      "userId": 3,
+      "title": "Build TodoForm with React Hook Form",
+      "completed": false
+    },
+    {
+      "id": 8,
+      "userId": 3,
+      "title": "Add Zod schema validation",
+      "completed": false
+    },
+    {
+      "id": 9,
+      "userId": 4,
+      "title": "Implement FadeDemo with Framer Motion",
+      "completed": false
+    },
+    {
+      "id": 10,
+      "userId": 4,
+      "title": "Add staggered list animation",
+      "completed": false
+    },
+    {
+      "id": 11,
+      "userId": 5,
+      "title": "Configure path alias in vite.config.ts",
+      "completed": false
+    },
+    {
+      "id": 12,
+      "userId": 5,
+      "title": "Analyse production build output with vite build",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "title": "test",
+      "body": "test",
+      "completed": true,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "title": "test",
+      "body": "test",
+      "completed": true,
+      "id": 14
+    }
   ],
   "users": [
     {
@@ -95,7 +229,10 @@
       "email": "alice@example.com",
       "phone": "555-0101",
       "website": "alicemercer.dev",
-      "company": { "name": "Pixels & Co", "catchPhrase": "Design that speaks" }
+      "company": {
+        "name": "Pixels & Co",
+        "catchPhrase": "Design that speaks"
+      }
     },
     {
       "id": 2,
@@ -104,7 +241,10 @@
       "email": "bob@example.com",
       "phone": "555-0102",
       "website": "btanaka.io",
-      "company": { "name": "Backend Bros", "catchPhrase": "Servers never sleep" }
+      "company": {
+        "name": "Backend Bros",
+        "catchPhrase": "Servers never sleep"
+      }
     },
     {
       "id": 3,
@@ -113,7 +253,10 @@
       "email": "carol@example.com",
       "phone": "555-0103",
       "website": "carolsingh.com",
-      "company": { "name": "State Machine Labs", "catchPhrase": "Predictable by design" }
+      "company": {
+        "name": "State Machine Labs",
+        "catchPhrase": "Predictable by design"
+      }
     },
     {
       "id": 4,
@@ -122,7 +265,10 @@
       "email": "dave@example.com",
       "phone": "555-0104",
       "website": "daveo.dev",
-      "company": { "name": "Motion Studio", "catchPhrase": "Everything in motion" }
+      "company": {
+        "name": "Motion Studio",
+        "catchPhrase": "Everything in motion"
+      }
     },
     {
       "id": 5,
@@ -131,7 +277,10 @@
       "email": "eve@example.com",
       "phone": "555-0105",
       "website": "elarsson.se",
-      "company": { "name": "Build Systems Inc", "catchPhrase": "Bundle it right" }
+      "company": {
+        "name": "Build Systems Inc",
+        "catchPhrase": "Bundle it right"
+      }
     }
   ]
 }

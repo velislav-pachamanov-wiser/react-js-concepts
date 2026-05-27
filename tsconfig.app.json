@@ -22,9 +22,11 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Path aliases — keep in sync with vite.config.ts resolve.alias */
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
-      "@consts/*": ["src/consts/*"]
+      "@consts/*": ["src/consts/*"],
+      "src/*": ["src/*"]
     }
   },
   "include": ["src"]

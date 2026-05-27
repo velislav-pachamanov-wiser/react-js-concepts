@@ -11,9 +11,23 @@ Open **[PROJECT_OUTLINE.md](./PROJECT_OUTLINE.md)** — it defines the app idea,
 | Command | Purpose |
 |--------|---------|
 | `npm run dev` | Dev server (Vite HMR) |
+| `npm run api` | Local JSON API from `db.json` (port 3001, writes persist to file) |
+| `npm run dev:all` | API + Vite together |
 | `npm run build` | Typecheck + production bundle |
 | `npm run preview` | Serve the production build locally |
 | `npm run lint` | ESLint |
+
+## Local API (persistent `db.json`)
+
+**my-json-server.typicode.com** only serves a read-only copy of `db.json` from GitHub. POST/PUT do not update your local file.
+
+For real persistence during development:
+
+1. Run **`npm run dev:all`** (or `npm run api` in one terminal and `npm run dev` in another).
+2. The app uses `VITE_API_URL=/api` (see `.env.development`). Vite proxies `/api` → `http://localhost:3001`.
+3. Creates/updates/deletes are written into **`db.json`** on disk (with `--watch`).
+
+To use the remote mock again, set `VITE_API_URL` in `.env.development` to the typicode URL (see `.env.example`).
 
 ## Stack (dependencies you will use)
 

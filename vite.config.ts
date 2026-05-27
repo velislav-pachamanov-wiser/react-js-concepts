@@ -8,6 +8,13 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:4001',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
     forwardConsole: {
       unhandledErrors: true,
       logLevels: ['error', 'warn', 'info', 'debug', 'trace'],
@@ -19,6 +26,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@consts': path.resolve(__dirname, 'src/consts'),
+      src: path.resolve(__dirname, 'src'),
     },
   },
   plugins: [

@@ -3,9 +3,6 @@ import { useQuery } from '@tanstack/react-query'
 import { fetchPosts } from './postsApi'
 import { PostCard } from './PostCard'
 
-/**
- * TODO: useQuery list, mutations, invalidation, PostCard map (PROJECT_OUTLINE.md — Posts).
- */
 export default function PostsPage() {
 
   const { data, isLoading, error } = useQuery({

@@ -7,12 +7,22 @@ interface FormProps<T extends FieldValues> {
     children: ReactElement | ((methods: UseFormReturn<T>) => ReactNode);
     onSubmit: FormSubmitHandler<T>;
     defaultValues?: DefaultValues<T>;
+    /** When validation first runs (default: on blur). */
     mode?: Mode;
+    /** After a failed submit, when fields re-validate (default: on blur, not every keystroke). */
+    reValidateMode?: 'onChange' | 'onBlur' | 'onSubmit';
     id?: string;
 }
 
-export function Form<T extends FieldValues>({ children, onSubmit, defaultValues, mode = 'onBlur', id }: FormProps<T>) {
-    const methods = useForm<T>({ mode, defaultValues });
+export function Form<T extends FieldValues>({
+    children,
+    onSubmit,
+    defaultValues,
+    mode = 'onBlur',
+    reValidateMode = 'onBlur',
+    id,
+}: FormProps<T>) {
+    const methods = useForm<T>({ mode, reValidateMode, defaultValues });
 
     return (
         <FormProvider {...methods}>

@@ -2,13 +2,21 @@ import Validator from "zod";
 
 export class FormValidator {
     static all(...fns: Array<(...args: unknown[]) => string | true>) {
-        return (value: any) => {
-            fns.map(fn => fn(value)).find(e => e !== true) || true;
+        return (value: unknown) => {
+            for (const fn of fns) {
+                const result = fn(value)
+                if (result !== true) return result
+            }
+            return true as const
         }
     }
 
     static isNotEmpty(value: string) {
         return (Validator.string().min(1).safeParse(value).success ? true : 'This field is required');
+    }
+
+    static isEmail(value: string) {
+        return (Validator.email().safeParse(value).success ? true : 'This field must be a valid email address');
     }
 
     static isNotEmptyArray(value: any[]) {

@@ -1,4 +1,4 @@
-import { Controller, useFormContext, type ControllerRenderProps, type FieldValues, type Path } from "react-hook-form";
+import { useController, useFormContext, type ControllerRenderProps, type FieldValues, type Path } from "react-hook-form";
 import { Checkbox, FormControlLabel, TextField, type TextFieldProps } from '@mui/material';
 import type { ReactElement } from "react";
 
@@ -10,52 +10,51 @@ interface FormInputProps<T extends FieldValues> extends Omit<TextFieldProps, 'na
 }
 
 export default function FormInput<T extends FieldValues>({ name, validate, renderInput, label, ...props }: FormInputProps<T>) {
-    const { control, formState: { errors } } = useFormContext<T>();
-    const errorMessage = errors[name]?.message as string | undefined;
+    const { control, formState: { isSubmitted } } = useFormContext<T>();
+
+    const { field, fieldState } = useController({
+        control,
+        name,
+        rules: validate ? { validate } : undefined,
+    });
+
+    const showError = fieldState.invalid && (fieldState.isTouched || isSubmitted);
+    const errorMessage = showError ? (fieldState.error?.message as string | undefined) : undefined;
+
+    if (renderInput) {
+        return renderInput({ field, error: errorMessage });
+    }
+
+    const { ref, value, onChange, onBlur, name: fieldName } = field;
+
+    if (typeof value === 'boolean') {
+        return (
+            <FormControlLabel
+                label={label}
+                control={
+                    <Checkbox
+                        name={fieldName}
+                        checked={value}
+                        onChange={(_, checked) => onChange(checked)}
+                        onBlur={onBlur}
+                        slotProps={{ input: { ref, name: fieldName } }}
+                    />
+                }
+            />
+        );
+    }
 
     return (
-        <Controller
-            control={control}
-            name={name}
-            rules={validate ? { validate } : undefined}
-            render={({ field }) => {
-                if (renderInput) {
-                    return renderInput({ field, error: errorMessage });
-                }
-
-                const { ref, value, onChange, onBlur, name: fieldName } = field;
-
-                if (typeof value === 'boolean') {
-                    return (
-                        <FormControlLabel
-                            label={label}
-                            control={
-                                <Checkbox
-                                    name={fieldName}
-                                    checked={value}
-                                    onChange={(_, checked) => onChange(checked)}
-                                    onBlur={onBlur}
-                                    slotProps={{ input: { ref, name: fieldName } }}
-                                />
-                            }
-                        />
-                    );
-                }
-
-                return (
-                    <TextField
-                        {...props}
-                        name={fieldName}
-                        label={label}
-                        inputRef={ref}
-                        value={value ?? ''}
-                        onChange={(e) => onChange(e.target.value)}
-                        onBlur={onBlur}
-                        error={!!errors[name]}
-                        helperText={errorMessage}
-                    />
-                );
-            }}
+        <TextField
+            {...props}
+            name={fieldName}
+            label={label}
+            inputRef={ref}
+            value={value ?? ''}
+            onChange={(e) => onChange(e.target.value)}
+            onBlur={onBlur}
+            error={showError}
+            helperText={errorMessage}
         />
     );
 }

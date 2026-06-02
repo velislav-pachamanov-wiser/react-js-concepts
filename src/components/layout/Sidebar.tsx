@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
 const nav: readonly { to: string; label: string; end?: boolean }[] = [
-  { to: '/', label: 'Dashboard', end: true },
   { to: '/posts', label: 'Posts (React Query)' },
   { to: '/todos', label: 'Todos (Forms)' },
   { to: '/users', label: 'Users (Redux)' },

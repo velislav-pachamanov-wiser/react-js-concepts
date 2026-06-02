@@ -26,11 +26,10 @@ By completing this project you will gain **hands-on, comprehensive** knowledge o
 ## Recommended study order
 
 1. **Routing** — Wire `[router/index.tsx](src/router/index.tsx)`, `[AppShell](src/components/layout/AppShell.tsx)`, `[Sidebar](src/components/layout/Sidebar.tsx)`; add lazy routes and a shared loading UI.
-2. **Template rendering** — Flesh out `[DashboardPage](src/features/dashboard/DashboardPage.tsx)` with conditional sections and links; reuse small UI pieces from `[components/ui](src/components/ui)`.
-3. **React Query** — Implement `[postsApi](src/features/posts/postsApi.ts)` + `[PostsPage](src/features/posts/PostsPage.tsx)` / `[PostDetail](src/features/posts/PostDetail.tsx)`: loading, error, mutation (e.g. optimistic “favorite”), invalidation.
-4. **Redux Toolkit** — Complete `[usersSlice](src/features/users/usersSlice.ts)` and `[UsersPage](src/features/users/UsersPage.tsx)`: `createAsyncThunk`, selectors, error handling; optionally compare with a tiny RTK Query endpoint in comments or a separate branch.
-5. **Forms** — `[TodoForm](src/features/todos/TodoForm.tsx)` + `[TodoList](src/features/todos/TodoList.tsx)`: Zod schema, RHF `useForm` / `Controller`, submit to JSONPlaceholder, reset, field-level errors.
-6. **Animations** — `[AnimationsPage](src/features/animations/AnimationsPage.tsx)` and demos under `[demos/](src/features/animations/demos)`: `motion`, `AnimatePresence`, list reorder, page transition (e.g. on route change via layout).
+2. **React Query** — Implement `[postsApi](src/features/posts/postsApi.ts)` + `[PostsPage](src/features/posts/PostsPage.tsx)` / `[PostDetail](src/features/posts/PostDetail.tsx)`: loading, error, mutation (e.g. optimistic “favorite”), invalidation.
+3. **Redux Toolkit** — Complete `[usersSlice](src/features/users/usersSlice.ts)` and `[UsersPage](src/features/users/UsersPage.tsx)`: `createAsyncThunk`, selectors, error handling; optionally compare with a tiny RTK Query endpoint in comments or a separate branch.
+4. **Forms** — `[TodoForm](src/features/todos/TodoForm.tsx)` + `[TodoList](src/features/todos/TodoList.tsx)`: Zod schema, RHF `useForm` / `Controller`, submit to JSONPlaceholder, reset, field-level errors.
+5. **Animations** — `[AnimationsPage](src/features/animations/AnimationsPage.tsx)` and demos under `[demos/](src/features/animations/demos)`: `motion`, `AnimatePresence`, list reorder, page transition (e.g. on route change via layout).
 
 ---
 
@@ -62,21 +61,7 @@ flowchart TD
 
 ## Module briefs & acceptance criteria
 
-### 1. Dashboard (`/`)
-
-**Files:** `[DashboardPage.tsx](src/features/dashboard/DashboardPage.tsx)`
-
-**Learn:** CSR “landing” experience, conditional rendering, linking to feature areas.
-
-**Acceptance criteria**
-
-- Explains (in UI copy) what each route teaches.
-- Uses at least two conditional render patterns (e.g. feature flags, empty state).
-- Uses shared UI components (`Card`, `Button`) where appropriate.
-
----
-
-### 2. Posts — TanStack Query (`/posts`, `/posts/:postId`)
+### 1. Posts — TanStack Query (`/posts`, `/posts/:postId`)
 
 **Files:** `[PostsPage.tsx](src/features/posts/PostsPage.tsx)`, `[PostDetail.tsx](src/features/posts/PostDetail.tsx)`, `[PostCard.tsx](src/features/posts/PostCard.tsx)`, `[postsApi.ts](src/features/posts/postsApi.ts)`
 
@@ -91,7 +76,7 @@ flowchart TD
 
 ---
 
-### 3. Users — Redux Toolkit (`/users`)
+### 2. Users — Redux Toolkit (`/users`)
 
 **Files:** `[usersSlice.ts](src/features/users/usersSlice.ts)`, `[UsersPage.tsx](src/features/users/UsersPage.tsx)`, `[UsersTable.tsx](src/features/users/UsersTable.tsx)`, `[store/hooks.ts](src/store/hooks.ts)`
 
@@ -107,7 +92,7 @@ flowchart TD
 
 ---
 
-### 4. Todos — Forms & validation (`/todos`)
+### 3. Todos — Forms & validation (`/todos`)
 
 **Files:** `[TodosPage.tsx](src/features/todos/TodosPage.tsx)`, `[TodoForm.tsx](src/features/todos/TodoForm.tsx)`, `[TodoList.tsx](src/features/todos/TodoList.tsx)`
 
@@ -121,7 +106,7 @@ flowchart TD
 
 ---
 
-### 5. Animations (`/animations`)
+### 4. Animations (`/animations`)
 
 **Files:** `[AnimationsPage.tsx](src/features/animations/AnimationsPage.tsx)`, `[demos/*.tsx](src/features/animations/demos)`
 
@@ -134,7 +119,7 @@ flowchart TD
 
 ---
 
-### 6. Cross-cutting: routing & code splitting
+### 5. Cross-cutting: routing & code splitting
 
 **Files:** `[router/index.tsx](src/router/index.tsx)`, `[AppShell.tsx](src/components/layout/AppShell.tsx)`
 
@@ -146,7 +131,7 @@ flowchart TD
 
 ---
 
-### 7. Shared hooks & types
+### 6. Shared hooks & types
 
 **Files:** `[useDebounce.ts](src/hooks/useDebounce.ts)`, `[types/index.ts](src/types/index.ts)`
 

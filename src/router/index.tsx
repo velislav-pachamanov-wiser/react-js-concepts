@@ -1,15 +1,17 @@
 /* eslint-disable react-refresh/only-export-components -- route table exports `router` + lazy route modules */
 import { lazy, Suspense } from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import AppShell from '../components/layout/AppShell'
 import { Spinner } from '../components/ui/Spinner'
 
-const DashboardPage = lazy(() => import('../features/dashboard/DashboardPage'))
 const PostsPage = lazy(() => import('../features/posts/PostsPage'))
 const PostDetail = lazy(() => import('../features/posts/PostDetail'))
 const TodosPage = lazy(() => import('../features/todos/TodosPage'))
 const UsersPage = lazy(() => import('../features/users/UsersPage'))
 const AnimationsPage = lazy(() => import('../features/animations/AnimationsPage'))
+const FadeDemo = lazy(() => import('../features/animations/demos/FadeDemo'))
+const ListDemo = lazy(() => import('../features/animations/demos/ListDemo'))
+const PageTransitionDemo = lazy(() => import('../features/animations/demos/TransitionDemo'))
 
 function RouteFallback() {
   return <Spinner />
@@ -25,11 +27,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: (
-          <Suspense fallback={<RouteFallback />}>
-            <DashboardPage />
-          </Suspense>
-        ),
+        element: <Navigate to="/posts" replace />,
       },
       {
         path: 'posts',
@@ -70,6 +68,33 @@ export const router = createBrowserRouter([
             <AnimationsPage />
           </Suspense>
         ),
+        children: [
+          { index: true, element: <Navigate to="fade" replace /> },
+          {
+            path: 'fade',
+            element: (
+              <Suspense fallback={<RouteFallback />}>
+                <FadeDemo />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'list',
+            element: (
+              <Suspense fallback={<RouteFallback />}>
+                <ListDemo />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'transition',
+            element: (
+              <Suspense fallback={<RouteFallback />}>
+                <PageTransitionDemo />
+              </Suspense>
+            ),
+          },
+        ],
       },
       {
         path: '*',
